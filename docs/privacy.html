@@ -19,7 +19,14 @@
   header .wrap{display:flex;align-items:center;gap:14px;height:62px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;color:inherit}
   .brand img{width:26px;height:26px;border-radius:7px}
-  nav{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:14px}
+  nav{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:14px}
+  header .coffee{font-size:13px;padding:4px 11px}
+  @media (max-width:620px){ nav a[data-hide]{display:none} }
+  @media (max-width:600px){
+    .brand span{display:none}
+    nav a:not(.coffee){display:none}
+    nav{gap:10px}
+  }
   nav a{color:var(--muted);text-decoration:none}
   .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
   .lang button{border:0;background:transparent;padding:4px 11px;font:inherit;font-size:13px;cursor:pointer;color:var(--muted)}
@@ -50,10 +57,11 @@
 
 <header>
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="assets/icon.png" alt="">Microcopy Lab</a>
+    <a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Microcopy Lab</span></a>
     <nav>
       <a href="index.html" data-t="navHome">Home</a>
-      <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+      <a href="https://github.com/StephanSX/microcopy-lab" data-hide>GitHub</a>
+      <a class="coffee" href="https://buymeacoffee.com/stephanweibel" data-t="footCoffee">Buy me a coffee</a>
       <span class="lang">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="de" aria-pressed="false">DE</button>

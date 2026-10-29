@@ -30,7 +30,8 @@
   header .wrap{display:flex;align-items:center;gap:14px;height:62px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;text-decoration:none;color:inherit}
   .brand img{width:26px;height:26px;border-radius:7px}
-  nav{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:14px}
+  nav{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:14px}
+  header .coffee{font-size:13px;padding:4px 11px}
   nav a{color:var(--muted);text-decoration:none}
   nav a:hover{color:var(--ink)}
   .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
@@ -93,6 +94,12 @@
   .coffee:hover{border-color:#c6cdd8;color:var(--ink)}
   .coffee::before{content:"";width:13px;height:13px;border-radius:3px;background:#ffdd00;flex:none}
 
+
+  @media (max-width:600px){
+    .brand span{display:none}
+    nav a:not(.coffee){display:none}
+    nav{gap:10px}
+  }
   @media (max-width:860px){
     .steps{grid-template-columns:1fr 1fr}
     .feat{grid-template-columns:1fr}
@@ -106,12 +113,13 @@
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#top"><img src="assets/icon.png" alt="">Microcopy Lab</a>
+    <a class="brand" href="#top"><img src="assets/icon.png" alt=""><span>Microcopy Lab</span></a>
     <nav>
       <a href="#how" data-i18n="navHow" data-hide>How it works</a>
       <a href="#table" data-i18n="navTable" data-hide>Table format</a>
       <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
-      <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+      <a href="https://github.com/StephanSX/microcopy-lab" data-hide>GitHub</a>
+      <a class="coffee" href="https://buymeacoffee.com/stephanweibel" data-i18n="footCoffee">Buy me a coffee</a>
       <span class="lang">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="de" aria-pressed="false">DE</button>
