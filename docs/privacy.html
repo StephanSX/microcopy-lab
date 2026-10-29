@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy – Microcopy Lab</title>
+<meta name="description" content="Privacy policy for the Microcopy Lab browser extension. No account, no server, no tracking — all data stays in your browser.">
+<link rel="icon" href="assets/icon.png">
+<style>
+  :root{--ink:#161e30;--muted:#5a6679;--line:#e3e7ef;--panel:#fff;--bg:#f5f7fc;--accent:#1f6feb;--radius:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:var(--accent)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  header{background:var(--panel);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;gap:14px;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;color:inherit}
+  .brand img{width:26px;height:26px;border-radius:7px}
+  nav{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:14px}
+  nav a{color:var(--muted);text-decoration:none}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .lang button{border:0;background:transparent;padding:4px 11px;font:inherit;font-size:13px;cursor:pointer;color:var(--muted)}
+  .lang button[aria-pressed=true]{background:var(--ink);color:#fff}
+  main{padding:48px 0 70px}
+  h1{font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+  .meta{color:var(--muted);font-size:14px;margin:0 0 28px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 30px;margin-bottom:20px}
+  h2{font-size:19px;margin:30px 0 8px;letter-spacing:-.01em}
+  h2:first-child{margin-top:0}
+  p,ul{margin:0 0 12px}
+  ul{padding-left:22px}
+  li{margin:4px 0}
+  code{background:#eceff5;padding:1px 6px;border-radius:5px;font-size:14px}
+  .tldr{background:#eef5ff;border:1px solid #cfe0fb;border-radius:var(--radius);padding:16px 20px;margin-bottom:26px}
+  .tldr p{margin:0}
+  footer{border-top:1px solid var(--line);background:var(--panel);padding:26px 0;font-size:14px;color:var(--muted)}
+  footer .wrap{display:flex;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--muted)}
+  .hide{display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/icon.png" alt="">Microcopy Lab</a>
+    <nav>
+      <a href="index.html" data-t="navHome">Home</a>
+      <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+      <span class="lang">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 data-t="title">Privacy Policy</h1>
+  <p class="meta"><span data-t="forExt">For the browser extension “Microcopy Lab”</span> · <span data-t="updated">Last updated: 29 October 2026</span></p>
+
+  <div class="tldr">
+    <p data-t="tldr"><b>In short:</b> Microcopy Lab has no server and no account. It does not collect, transmit, sell or share any personal data. Everything stays in your browser.</p>
+  </div>
+
+  <div class="card">
+    <h2 data-t="h_controller">Who is responsible</h2>
+    <p>
+      Weibel Consulting, Stephan Weibel<br>
+      <span data-t="addr">[Street and number]</span><br>
+      <span data-t="city">[Postcode] Muttenz, Switzerland</span><br>
+      <span data-t="mailLabel">Email:</span> <a href="mailto:PLACEHOLDER@example.com">[contact email]</a>
+    </p>
+
+    <h2 data-t="h_what">What the extension processes</h2>
+    <ul>
+      <li data-t="w1"><b>Texts of websites you enable</b> — visible texts, input placeholders, tooltips and accessibility labels. They are read in order to replace them with your own variants, and, if you leave automatic collecting switched on, stored as a list of “collected texts” so that you can build your table from it.</li>
+      <li data-t="w2"><b>Your tables and settings</b> — the contents of the spreadsheet you import, the variant you selected and the options you set per website.</li>
+    </ul>
+
+    <h2 data-t="h_where">Where the data is stored</h2>
+    <p data-t="where1">All of it is stored locally in your browser profile using the browser's own extension storage (<code>chrome.storage.local</code>). There is no server, no user account, no analytics, no tracking and no advertising. The extension never transmits this data anywhere.</p>
+
+    <h2 data-t="h_net">Network access</h2>
+    <p data-t="net1">The extension makes exactly one kind of network request: when you enter the address of a table — for example a Google Sheet shared by link, or a CSV file — it downloads that file so it can be used as your table. No cookies, page contents or other data from your browser are sent with that request. If you never enter such an address, the extension makes no network requests at all.</p>
+
+    <h2 data-t="h_perm">Permissions and why they are needed</h2>
+    <ul>
+      <li data-t="pm1"><code>storage</code> — to keep your tables and settings in the browser.</li>
+      <li data-t="pm2"><code>scripting</code> and website access — to replace texts on a website. Access is requested separately for each website, only after you click “Enable”, and you can withdraw it at any time in the browser's extension settings.</li>
+      <li data-t="pm3"><code>activeTab</code> — to read the address of the current tab when you open the extension's popup, so that it can offer to enable itself for that website.</li>
+    </ul>
+
+    <h2 data-t="h_del">Deleting your data</h2>
+    <p data-t="del1">Removing a website in the extension's settings deletes its table and its collected texts and withdraws the permission for that website. Uninstalling the extension deletes all of its data.</p>
+
+    <h2 data-t="h_share">Sharing and exports</h2>
+    <p data-t="share1">Collected texts can contain personal data that was displayed on the pages you tested, for example names of people shown in a list. Nothing is exported unless you click “Export”. Please review an export before you pass it on.</p>
+
+    <h2 data-t="h_rights">Your rights</h2>
+    <p data-t="rights1">Because no data ever reaches us, we hold no personal data about you and there is nothing for us to disclose, correct or delete. The data lies in your own browser and is under your control at all times. If you have questions about this policy, write to the address above.</p>
+
+    <h2 data-t="h_changes">Changes to this policy</h2>
+    <p data-t="chg1">Changes will be published on this page and noted in the release notes of the extension. If the way data is handled ever changes materially, users will be informed before the change takes effect.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Weibel Consulting, Muttenz</span>
+    <a href="index.html" data-t="navHome">Home</a>
+    <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const DE = {
+  navHome:'Startseite',
+  title:'Datenschutzerklärung',
+  forExt:'Für die Browser-Erweiterung «Microcopy Lab»',
+  updated:'Stand: 29. Oktober 2026',
+  tldr:'<b>Kurz gesagt:</b> Microcopy Lab hat keinen Server und kein Konto. Es erhebt, überträgt, verkauft oder teilt keine personenbezogenen Daten. Alles bleibt in deinem Browser.',
+  h_controller:'Verantwortlich',
+  addr:'[Strasse und Nummer]', city:'[PLZ] Muttenz, Schweiz', mailLabel:'E-Mail:',
+  h_what:'Was die Erweiterung verarbeitet',
+  w1:'<b>Texte von Websites, die du aktivierst</b> – sichtbare Texte, Platzhalter in Eingabefeldern, Tooltips und Screenreader-Beschriftungen. Sie werden gelesen, um sie durch deine eigenen Varianten zu ersetzen, und – solange das automatische Sammeln eingeschaltet ist – als Liste «gesammelter Texte» gespeichert, damit du daraus deine Tabelle aufbauen kannst.',
+  w2:'<b>Deine Tabellen und Einstellungen</b> – der Inhalt der importierten Tabelle, die gewählte Variante und die Optionen, die du pro Website setzt.',
+  h_where:'Wo die Daten gespeichert werden',
+  where1:'Alles wird lokal in deinem Browserprofil gespeichert, im Erweiterungsspeicher des Browsers (<code>chrome.storage.local</code>). Es gibt keinen Server, kein Benutzerkonto, keine Analyse, kein Tracking und keine Werbung. Die Erweiterung überträgt diese Daten nirgendwohin.',
+  h_net:'Netzwerkzugriffe',
+  net1:'Die Erweiterung macht genau eine Art von Netzwerkanfrage: Wenn du die Adresse einer Tabelle eingibst – zum Beispiel ein per Link freigegebenes Google Sheet oder eine CSV-Datei –, lädt sie diese Datei herunter, um sie als Tabelle zu verwenden. Dabei werden keine Cookies, Seiteninhalte oder anderen Daten aus deinem Browser mitgesendet. Gibst du nie eine solche Adresse ein, macht die Erweiterung überhaupt keine Netzwerkanfragen.',
+  h_perm:'Berechtigungen und wofür sie nötig sind',
+  pm1:'<code>storage</code> – um deine Tabellen und Einstellungen im Browser zu behalten.',
+  pm2:'<code>scripting</code> und Website-Zugriff – um Texte auf einer Website zu ersetzen. Der Zugriff wird für jede Website einzeln angefragt, erst nachdem du auf «Aktivieren» klickst, und du kannst ihn jederzeit in den Einstellungen des Browsers wieder entziehen.',
+  pm3:'<code>activeTab</code> – um beim Öffnen des Menüs die Adresse des aktuellen Tabs zu lesen, damit die Erweiterung die Aktivierung für diese Website anbieten kann.',
+  h_del:'Daten löschen',
+  del1:'Wenn du eine Website in den Einstellungen der Erweiterung entfernst, werden ihre Tabelle und ihre gesammelten Texte gelöscht und die Berechtigung für diese Website entzogen. Beim Deinstallieren werden alle Daten der Erweiterung gelöscht.',
+  h_share:'Weitergabe und Exporte',
+  share1:'Gesammelte Texte können personenbezogene Daten enthalten, die auf den getesteten Seiten angezeigt wurden, zum Beispiel Namen von Personen in einer Liste. Es wird nichts exportiert, solange du nicht auf «Exportieren» klickst. Bitte prüfe einen Export, bevor du ihn weitergibst.',
+  h_rights:'Deine Rechte',
+  rights1:'Da keine Daten zu uns gelangen, liegen bei uns keine personenbezogenen Daten über dich vor, die wir herausgeben, berichtigen oder löschen könnten. Die Daten liegen in deinem eigenen Browser und unterstehen jederzeit deiner Kontrolle. Bei Fragen zu dieser Erklärung schreib an die oben genannte Adresse.',
+  h_changes:'Änderungen dieser Erklärung',
+  chg1:'Änderungen werden auf dieser Seite veröffentlicht und in den Versionshinweisen der Erweiterung erwähnt. Sollte sich der Umgang mit Daten wesentlich ändern, werden die Nutzerinnen und Nutzer vor dem Wirksamwerden informiert.'
+};
+const EN = {};
+document.querySelectorAll('[data-t]').forEach(el => { EN[el.dataset.t] = el.innerHTML; });
+function setLang(l) {
+  const dict = l === 'de' ? DE : EN;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const v = dict[el.dataset.t];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
+  try { localStorage.setItem('mcl-lang', l); } catch (e) {}
+}
+document.querySelectorAll('.lang button').forEach(b => { b.onclick = () => setLang(b.dataset.lang); });
+let start = null;
+try { start = localStorage.getItem('mcl-lang'); } catch (e) {}
+if (!start) start = (navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'en';
+if (start === 'de') setLang('de');
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

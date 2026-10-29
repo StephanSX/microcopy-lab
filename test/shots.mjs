@@ -1,0 +1,52 @@
+import { chromium } from 'playwright';
+import path from 'node:path';
+import os from 'node:os';
+const HERE = path.dirname(new URL(import.meta.url).pathname);
+const ROOT = path.resolve(HERE, '..');
+const TMP = os.tmpdir();
+// optional: point at an already-installed Chromium instead of Playwright's own download
+const EXEC = process.env.PLAYWRIGHT_CHROMIUM_PATH ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH } : {};
+import fs from 'fs';
+const lang = process.argv[2] || 'en';
+const SRC = path.join(ROOT, 'extension'), EXT = path.join(TMP, 'mcl-shot-ext-') + lang, OUT = path.join(ROOT, 'store', 'raw-' + lang);
+fs.rmSync(EXT, { recursive: true, force: true }); fs.cpSync(SRC, EXT, { recursive: true }); fs.mkdirSync(OUT, { recursive: true });
+const man = JSON.parse(fs.readFileSync(EXT + '/manifest.json')); man.host_permissions = ['<all_urls>']; fs.writeFileSync(EXT + '/manifest.json', JSON.stringify(man));
+const app = fs.readFileSync(path.join(HERE, 'demo', 'app.html'), 'utf8');
+const loc = lang === 'de' ? 'de-DE' : 'en-US';
+const ctx = await chromium.launchPersistentContext(path.join(TMP, 'shot-') + lang + Date.now(), {
+  headless: true, channel: 'chromium', ...EXEC,
+  args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${loc}`], locale: loc, deviceScaleFactor: 1, viewport: { width: 1280, height: 800 } });
+await ctx.route(/https:\/\/orbit\.demo\.test\/.*/, r => r.fulfill({ contentType: 'text/html; charset=utf-8', body: app }));
+const sw = ctx.serviceWorkers()[0] || await ctx.waitForEvent('serviceworker');
+const id = sw.url().split('/')[2];
+await new Promise(r => setTimeout(r, 800));
+for (const p of ctx.pages()) if (p.url().includes('options')) await p.close();
+const ORIGIN = 'https://orbit.demo.test';
+const o = await ctx.newPage();
+await o.goto(`chrome-extension://${id}/options.html`);
+await o.evaluate(o => chrome.runtime.sendMessage({ cmd: 'addSite', origin: o }), ORIGIN);
+const a = await ctx.newPage();
+await a.goto(ORIGIN + '/'); await a.waitForTimeout(3000); // auto-collect flush
+await o.goto(`chrome-extension://${id}/options.html?site=` + encodeURIComponent(ORIGIN)); await o.waitForTimeout(400);
+await o.setInputFiles('#file', path.join(HERE, 'demo', 'variants.csv')); await o.waitForSelector('#reportCard:not([hidden])'); await o.waitForTimeout(600);
+await o.evaluate(() => window.scrollTo(0, document.getElementById('reportCard').offsetTop - 250));
+await o.screenshot({ path: OUT + '/options-report.png' });
+await o.click('#apply'); await o.waitForTimeout(300);
+await o.evaluate(() => window.scrollTo(0, 0));
+await o.screenshot({ path: OUT + '/options-top.png' });
+const setSite = patch => o.evaluate(([org, p]) => chrome.storage.local.get('sites').then(d => { Object.assign(d.sites[org], p); return chrome.storage.local.set(d); }), [ORIGIN, patch]);
+await setSite({ enabled: false }); await a.waitForTimeout(300);
+await a.screenshot({ path: OUT + '/app-original.png' });
+await setSite({ enabled: true, variant: 'Friendly', highlight: false }); await a.waitForTimeout(300);
+await a.screenshot({ path: OUT + '/app-friendly.png' });
+await setSite({ highlight: true }); await a.waitForTimeout(300);
+await a.screenshot({ path: OUT + '/app-highlight.png' });
+const tabId = await sw.evaluate(async () => (await chrome.tabs.query({})).find(t => (t.url || '').startsWith('https://orbit.demo.test')).id);
+const pp = await ctx.newPage(); await pp.setViewportSize({ width: 340, height: 560 });
+await pp.addInitScript(tid => { const q = chrome.tabs.query.bind(chrome.tabs); chrome.tabs.query = async () => (await q({})).filter(t => t.id === tid); }, tabId);
+await pp.goto(`chrome-extension://${id}/popup.html`); await pp.waitForTimeout(700);
+const h = await pp.evaluate(() => document.body.scrollHeight);
+await pp.setViewportSize({ width: 340, height: h });
+await pp.screenshot({ path: OUT + '/popup.png' });
+await ctx.close();
+console.log('shots', lang, 'ok');

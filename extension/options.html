@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Microcopy Lab</title>
+<link rel="stylesheet" href="ui.css">
+<style>
+  body{padding:28px 20px 60px}
+  .wrap{max-width:1000px;margin:0 auto;display:grid;gap:16px}
+  h1{font-size:22px}
+  h2{font-size:15px;margin-bottom:10px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:780px){.grid2{grid-template-columns:1fr}}
+  .drop{border:1.5px dashed #c5ccd5;border-radius:10px;padding:18px;text-align:center;background:#fafbfc}
+  .drop.over{border-color:var(--accent);background:#eef5ff}
+  .kpis{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+  .kpis div{background:#f3f5f8;border-radius:8px;padding:8px 12px}
+  .kpis b{font-size:18px;display:block}
+  ul.list{margin:6px 0 0;padding-left:18px;max-height:200px;overflow:auto}
+  ul.list li{margin:2px 0}
+  .tablewrap{overflow:auto;max-height:340px;border:1px solid var(--line);border-radius:8px;margin-top:10px}
+  table{border-collapse:collapse;width:100%;font-size:12px}
+  th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top;white-space:nowrap;max-width:320px;overflow:hidden;text-overflow:ellipsis}
+  th{position:sticky;top:0;background:#f3f5f8;font-weight:600}
+  td.empty{color:#aab3bd}
+  code{background:#eef1f4;padding:1px 5px;border-radius:4px;font-size:12px}
+  details summary{cursor:pointer;font-weight:600}
+  .help p{margin:6px 0}
+  .topbar{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap}
+  .brand{display:flex;gap:10px;align-items:center}
+  .brand img{width:36px;height:36px}
+  .sitebar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .sitebar select{width:auto;min-width:240px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand grow">
+      <img src="icons/icon128.png" alt="">
+      <div>
+        <h1>Microcopy Lab</h1>
+        <div class="muted" data-i18n="optTagline"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="welcome" class="msg info" hidden data-i18n-html="optWelcome"></div>
+
+  <section class="card">
+    <div class="sitebar">
+      <label for="siteSelect" class="small muted" data-i18n="optWebsite"></label>
+      <select id="siteSelect"></select>
+      <span class="grow"></span>
+      <input type="url" id="newSite" data-i18n-placeholder="optAddSitePlaceholder" style="width:260px">
+      <button id="addSite" data-i18n="optAddSite"></button>
+    </div>
+  </section>
+
+  <section id="empty" class="card" hidden>
+    <h2 data-i18n="optEmptyTitle"></h2>
+    <p class="muted" style="margin:0" data-i18n-html="optEmptyText"></p>
+  </section>
+
+  <div id="siteArea" hidden>
+    <div style="display:grid;gap:16px">
+      <div id="permWarn" class="msg warn" hidden>
+        <span data-i18n="optPermMissing"></span> <button id="regrant" style="margin-left:8px" data-i18n="optRegrant"></button>
+      </div>
+      <div class="grid2">
+        <section class="card">
+          <h2 data-i18n="optImportTitle"></h2>
+          <div class="drop" id="drop">
+            <div data-i18n="optDrop"></div>
+            <div class="small muted" style="margin:6px 0 10px" data-i18n="optDropFormats"></div>
+            <button id="pick" data-i18n="optPickFile"></button>
+            <input type="file" id="file" accept=".xlsx,.csv,.tsv,.txt" hidden>
+          </div>
+          <div style="margin-top:14px">
+            <div class="small muted" style="margin-bottom:4px" data-i18n="optSheetLabel"></div>
+            <div class="row">
+              <input type="url" id="sheetUrl" class="grow" placeholder="https://docs.google.com/spreadsheets/d/…" style="width:auto">
+              <button id="loadSheet" data-i18n="optLoad"></button>
+            </div>
+            <label class="row small" style="margin-top:6px"><input type="checkbox" id="autoRefresh"> <span data-i18n="optAutoRefresh"></span></label>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 data-i18n="optCurrentTable"></h2>
+          <div id="current" class="muted"></div>
+          <div class="row" style="margin-top:12px">
+            <button id="clearTable" class="danger" data-i18n="optClearTable"></button>
+          </div>
+          <h2 style="margin-top:18px" data-i18n="optSettings"></h2>
+          <label class="row"><input type="checkbox" id="autoCollect"> <span data-i18n="optAutoCollect"></span></label>
+          <div class="small muted" style="margin-top:10px" data-i18n-html="optTestLinks"></div>
+          <div class="row" style="margin-top:14px">
+            <button id="removeSite" class="danger" data-i18n="optRemoveSite"></button>
+          </div>
+        </section>
+      </div>
+
+      <section class="card" id="reportCard" hidden>
+        <h2><span data-i18n="optReport"></span> <span id="reportSource" class="pill"></span></h2>
+        <div class="kpis" id="kpis"></div>
+        <div id="reportMsgs" style="display:grid;gap:6px"></div>
+        <div class="tablewrap"><table id="preview"></table></div>
+        <div class="row" style="margin-top:12px">
+          <button id="apply" class="primary" data-i18n="optApply"></button>
+          <button id="discard" data-i18n="optDiscard"></button>
+          <span id="applyNote" class="small muted" data-i18n="optApplyNote"></span>
+        </div>
+      </section>
+
+      <div class="grid2">
+        <section class="card">
+          <h2 data-i18n="optExportTitle"></h2>
+          <p class="muted" style="margin-top:0" data-i18n-html="optExportText"></p>
+          <div class="row">
+            <button id="exportXlsx" class="primary" data-i18n="optExportXlsx"></button>
+            <button id="exportCsv" data-i18n="optExportCsv"></button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2><span data-i18n="optCollected"></span> <span id="seenCount" class="pill">0</span></h2>
+          <input type="search" id="seenFilter" data-i18n-placeholder="optSearch">
+          <div class="tablewrap" style="max-height:220px"><table id="seenTable"></table></div>
+          <div class="row" style="margin-top:10px">
+            <button id="clearSeen" class="danger" data-i18n="optClearSeen"></button>
+            <span class="small muted" data-i18n="optCollectedHint"></span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <section class="card help">
+    <details>
+      <summary data-i18n="optHelpTitle"></summary>
+      <div data-i18n-html="optHelpBody"></div>
+    </details>
+  </section>
+  <section class="card help">
+    <details>
+      <summary data-i18n="optPrivacyTitle"></summary>
+      <div data-i18n-html="optPrivacyBody"></div>
+      <p class="small muted" id="version"></p>
+    </details>
+  </section>
+</div>
+<script src="lib/i18n.js"></script>
+<script src="lib/core.js"></script>
+<script src="lib/xlsx-mini.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

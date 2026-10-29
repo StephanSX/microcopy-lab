@@ -1,0 +1,341 @@
+{
+ "extName": {
+  "message": "Microcopy Lab – Textvarianten für UX-Tests"
+ },
+ "extDescription": {
+  "message": "Ersetzt Beschriftungen, Titel und Buttontexte auf beliebigen Websites nach einer Tabelle – für Usability-Tests mit Textvarianten."
+ },
+ "popupToggleTitle": {
+  "message": "Ersetzen ein/aus"
+ },
+ "popupUnsupported": {
+  "message": "Auf dieser Seite kann Microcopy Lab nicht laufen (z.B. Browser-Seiten oder der Web Store)."
+ },
+ "popupInactive": {
+  "message": "Microcopy Lab ist auf dieser Website noch nicht aktiv."
+ },
+ "popupEnableOn": {
+  "message": "Auf {0} aktivieren"
+ },
+ "popupPermissionHint": {
+  "message": "Chrome fragt nach der Berechtigung, Seiten dieser Website zu lesen und zu ändern. Es wird nichts gesendet – alles bleibt in deinem Browser."
+ },
+ "popupVariant": {
+  "message": "Variante"
+ },
+ "popupNoTable": {
+  "message": "Noch keine Tabelle – in der Verwaltung importieren."
+ },
+ "popupThisPage": {
+  "message": "Diese Seite"
+ },
+ "statReplaced": {
+  "message": "ersetzt"
+ },
+ "statEmpty": {
+  "message": "ohne Text in Variante"
+ },
+ "statUnknown": {
+  "message": "nicht in Tabelle"
+ },
+ "popupHighlight": {
+  "message": "Texte markieren"
+ },
+ "legendOk": {
+  "message": "ersetzt"
+ },
+ "legendEmpty": {
+  "message": "ohne Variante"
+ },
+ "legendUnknown": {
+  "message": "unbekannt"
+ },
+ "popupCollect": {
+  "message": "Texte dieser Seite sammeln"
+ },
+ "popupCollected": {
+  "message": "{0} Texte auf {1} gesammelt, davon {2} neu."
+ },
+ "popupRefreshSheet": {
+  "message": "Tabelle aus Google Sheet neu laden"
+ },
+ "popupManage": {
+  "message": "Import, Export & Verwaltung"
+ },
+ "popupReloadPage": {
+  "message": "Bitte die Seite einmal neu laden und erneut versuchen."
+ },
+ "popupTableInfo": {
+  "message": "{0} Einträge · {1} Varianten · {2}"
+ },
+ "variantOriginal": {
+  "message": "Original"
+ },
+ "permDenied": {
+  "message": "Die Berechtigung wurde nicht erteilt."
+ },
+ "sheetLoading": {
+  "message": "Lade …"
+ },
+ "sheetUpdated": {
+  "message": "Tabelle aktualisiert: {0} Einträge."
+ },
+ "sheetUpdatedWarn": {
+  "message": "Tabelle aktualisiert: {0} Einträge, {1} Warnungen (Details in der Verwaltung)."
+ },
+ "sheetErrorPrefix": {
+  "message": "Google Sheet: {0}"
+ },
+ "errNoSheetUrl": {
+  "message": "Keine Sheet-Adresse hinterlegt."
+ },
+ "errSheetPermission": {
+  "message": "Die Berechtigung zum Herunterladen fehlt. Bitte in der Verwaltung erneut auf «Laden» klicken."
+ },
+ "errSheetStatus": {
+  "message": "Der Server antwortet mit Status {0}. Ist das Sheet für «Alle mit dem Link» freigegeben?"
+ },
+ "errSheetHtml": {
+  "message": "Statt einer Tabelle kam eine Webseite zurück (meist eine Anmeldeseite). Sheet für «Alle mit dem Link» freigeben oder als CSV im Web veröffentlichen."
+ },
+ "errXls": {
+  "message": "Das alte .xls-Format wird nicht unterstützt – bitte als .xlsx oder CSV speichern."
+ },
+ "errXlsxInvalid": {
+  "message": "Keine gültige XLSX-Datei."
+ },
+ "errXlsxCorrupt": {
+  "message": "Die XLSX-Datei ist beschädigt."
+ },
+ "errXlsxCompression": {
+  "message": "Nicht unterstützte Komprimierung in der XLSX-Datei."
+ },
+ "errXlsxXml": {
+  "message": "Die XLSX-Datei konnte nicht gelesen werden."
+ },
+ "errXlsxSheet": {
+  "message": "Kein Tabellenblatt in der XLSX-Datei gefunden."
+ },
+ "repNoOriginal": {
+  "message": "Keine Spalte «original» gefunden. Die Kopfzeile braucht mindestens «original» und eine Variantenspalte."
+ },
+ "repDupColumn": {
+  "message": "Spalte «{0}» kommt doppelt vor – nur die erste wird verwendet."
+ },
+ "repNoVariants": {
+  "message": "Keine Variantenspalte gefunden (z.B. «A», «B»). Die Tabelle wird übernommen, ersetzt aber nichts."
+ },
+ "repUnknownType": {
+  "message": "Zeile {0}: unbekannter Typ «{1}» – als «text» behandelt."
+ },
+ "repDuplicate": {
+  "message": "Zeile {0}: «{1}» ({2}, {3}) doppelt – Zeile {4} gilt."
+ },
+ "repPlaceholder": {
+  "message": "Zeile {0}: Platzhalter in Variante {1} passen nicht zum Original («{2}» → «{3}»)."
+ },
+ "repSkipped": {
+  "message": "{0} Zeilen ohne Originaltext übersprungen."
+ },
+ "repUnseen": {
+  "message": "{0} Einträge bisher auf keiner Seite gefunden (Seite noch nicht besucht oder Tippfehler?)."
+ },
+ "repUnseenExamples": {
+  "message": "Beispiele nicht gefunden: {0}"
+ },
+ "repErrorsTitle": {
+  "message": "Fehler – Tabelle kann nicht übernommen werden"
+ },
+ "repWarningsTitle": {
+  "message": "Warnungen"
+ },
+ "repInfosTitle": {
+  "message": "Hinweise"
+ },
+ "repAllGood": {
+  "message": "Keine Probleme gefunden."
+ },
+ "repMore": {
+  "message": "… und {0} weitere"
+ },
+ "repMoreRows": {
+  "message": "… {0} weitere Zeilen"
+ },
+ "kpiRows": {
+  "message": "Einträge"
+ },
+ "kpiVariants": {
+  "message": "Varianten"
+ },
+ "kpiWarnings": {
+  "message": "Warnungen"
+ },
+ "kpiUnseen": {
+  "message": "nicht gefunden"
+ },
+ "eqOriginal": {
+  "message": "= Original"
+ },
+ "foundYes": {
+  "message": "ja"
+ },
+ "foundNo": {
+  "message": "nein"
+ },
+ "foundNew": {
+  "message": "neu"
+ },
+ "optTagline": {
+  "message": "Textvarianten auf beliebigen Websites testen – gesteuert über eine einfache Tabelle."
+ },
+ "optWelcome": {
+  "message": "<b>Installiert.</b> Öffne die Website, die du testen willst, klicke auf das Microcopy-Lab-Symbol und wähle <i>Aktivieren</i>. Klicke dich durch die Seiten – Texte werden automatisch gesammelt. Danach hier exportieren, Varianten eintragen und die Datei wieder importieren."
+ },
+ "optWebsite": {
+  "message": "Website"
+ },
+ "optAddSitePlaceholder": {
+  "message": "https://app.beispiel.ch"
+ },
+ "optAddSite": {
+  "message": "Website hinzufügen"
+ },
+ "optInvalidUrl": {
+  "message": "Bitte eine gültige Webadresse eingeben (https://…)."
+ },
+ "optEmptyTitle": {
+  "message": "Noch keine Website aktiviert"
+ },
+ "optEmptyText": {
+  "message": "Öffne die Website, die du testen willst, und klicke in der Symbolleiste auf das Microcopy-Lab-Symbol – oder trage die Adresse oben ein. Microcopy Lab läuft nur auf Websites, die du aktivierst."
+ },
+ "optPermMissing": {
+  "message": "Chrome hat keine Berechtigung mehr für diese Website – es wird nichts ersetzt."
+ },
+ "optRegrant": {
+  "message": "Erneut erlauben"
+ },
+ "optImportTitle": {
+  "message": "1 · Tabelle importieren"
+ },
+ "optDrop": {
+  "message": "Excel- oder CSV-Datei hierher ziehen"
+ },
+ "optDropFormats": {
+  "message": ".xlsx · .csv (Semikolon, Komma oder Tab)"
+ },
+ "optPickFile": {
+  "message": "Datei wählen …"
+ },
+ "optSheetLabel": {
+  "message": "oder Google Sheet (freigegeben für «Alle mit dem Link») bzw. CSV-Adresse"
+ },
+ "optLoad": {
+  "message": "Laden"
+ },
+ "optAutoRefresh": {
+  "message": "beim Öffnen der Website automatisch neu laden"
+ },
+ "optCurrentTable": {
+  "message": "Aktuelle Tabelle"
+ },
+ "optCurrentSummary": {
+  "message": "{0} Einträge · {1} · importiert {2}"
+ },
+ "optFromFile": {
+  "message": "Datei «{0}»"
+ },
+ "optVariantsCount": {
+  "message": "Ausgefüllt pro Variante –"
+ },
+ "optNoTable": {
+  "message": "Noch keine Tabelle importiert."
+ },
+ "optClearTable": {
+  "message": "Tabelle entfernen"
+ },
+ "optClearTableConfirm": {
+  "message": "Aktuelle Tabelle entfernen? Die Website zeigt danach wieder die Originaltexte."
+ },
+ "optSettings": {
+  "message": "Einstellungen"
+ },
+ "optAutoCollect": {
+  "message": "Texte beim Durchklicken automatisch sammeln"
+ },
+ "optTestLinks": {
+  "message": "Test-Links: <code>?_variant=B</code> an eine Adresse anhängen schaltet Variante B ein, <code>?_variant=original</code> zeigt das Original, <code>?_variant=off</code> schaltet das Ersetzen aus."
+ },
+ "optRemoveSite": {
+  "message": "Website entfernen"
+ },
+ "optRemoveSiteConfirm": {
+  "message": "{0} inklusive Tabelle und gesammelter Texte entfernen? Die Berechtigung für diese Website wird ebenfalls entzogen."
+ },
+ "optReport": {
+  "message": "Prüfbericht"
+ },
+ "optApply": {
+  "message": "Übernehmen"
+ },
+ "optDiscard": {
+  "message": "Verwerfen"
+ },
+ "optApplyNote": {
+  "message": "Offene Tabs dieser Website werden sofort aktualisiert."
+ },
+ "optExportTitle": {
+  "message": "2 · Exportieren"
+ },
+ "optExportText": {
+  "message": "Enthält die aktuelle Tabelle und alle gesammelten Texte, die noch fehlen (Spalte <code>found</code> = «neu»)."
+ },
+ "optExportXlsx": {
+  "message": "Excel exportieren"
+ },
+ "optExportCsv": {
+  "message": "CSV exportieren"
+ },
+ "optCollected": {
+  "message": "Gesammelte Texte"
+ },
+ "optSearch": {
+  "message": "Suchen …"
+ },
+ "optClearSeen": {
+  "message": "Liste leeren"
+ },
+ "optClearSeenConfirm": {
+  "message": "Liste der gesammelten Texte dieser Website leeren?"
+ },
+ "optCollectedHint": {
+  "message": "Kann personenbezogene Daten der Seite enthalten (z.B. Namen) – vor dem Teilen prüfen."
+ },
+ "optNPages": {
+  "message": "{0} Seiten"
+ },
+ "colText": {
+  "message": "Text"
+ },
+ "colType": {
+  "message": "Typ"
+ },
+ "colPages": {
+  "message": "Seiten"
+ },
+ "colTable": {
+  "message": "Tabelle"
+ },
+ "optHelpTitle": {
+  "message": "Tabellenformat & Tipps"
+ },
+ "optHelpBody": {
+  "message": "<p>Kopfzeile: <code>page</code> · <code>type</code> · <code>original</code> · beliebige Variantenspalten (<code>A</code>, <code>B</code>, <code>Kurz</code> …) · <code>note</code>. Spalten <code>found</code>, <code>id</code> und <code>key</code> werden ignoriert. Deutsche Namen (<code>seite</code>, <code>typ</code>, <code>notiz</code>) funktionieren ebenfalls.</p><p><b>page</b>: <code>*</code> = überall, <code>/app</code> = genau diese Seite, <code>/app/groups/*</code> = inklusive Unterseiten. IDs in Adressen werden automatisch zu <code>:id</code> (z.B. <code>/app/groups/:id/settings</code>). Genauere Einträge haben Vorrang.</p><p><b>type</b>: <code>text</code> (sichtbar), <code>placeholder</code> (Eingabefeld), <code>tooltip</code>, <code>aria</code> (Screenreader). Leer = text.</p><p><b>Platzhalter</b>: <code>{n} Geräte</code> → <code>{n} Sensoren</code>. Gilt für Texte, die als ein Stück auf der Seite stehen.</p><p><b>Leeres Feld</b> in einer Variante = Originaltext bleibt.</p>"
+ },
+ "optPrivacyTitle": {
+  "message": "Datenschutz"
+ },
+ "optPrivacyBody": {
+  "message": "<p>Microcopy Lab hat keinen Server und keine Analyse. Tabellen, Einstellungen und gesammelte Texte werden nur in diesem Browser gespeichert (chrome.storage.local) und verlassen dein Gerät nie.</p><p>Die Erweiterung läuft nur auf Websites, die du selbst aktivierst. Die einzige Netzwerkanfrage ist das Herunterladen einer Tabelle von einer Adresse, die du eingibst (z.B. Google Sheet) – dabei werden keine Daten mitgesendet.</p><p>Beim Entfernen einer Website oder beim Deinstallieren werden die zugehörigen Daten gelöscht.</p>"
+ }
+}

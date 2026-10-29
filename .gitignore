@@ -1,0 +1,6 @@
+node_modules/
+*.zip
+store/raw-en/
+store/raw-de/
+.DS_Store
+Thumbs.db

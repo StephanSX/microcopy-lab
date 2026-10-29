@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microcopy Lab – Test wording variants on any website</title>
+<meta name="description" content="Chrome extension that swaps titles, labels, buttons and tooltips on any website from a spreadsheet – for usability tests, UX writing reviews and localisation checks.">
+<link rel="icon" href="assets/icon.png">
+<meta property="og:title" content="Microcopy Lab">
+<meta property="og:description" content="Test wording variants in your real product – without touching code.">
+<meta property="og:image" content="assets/hero.png">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --ink:#161e30; --muted:#5a6679; --line:#e3e7ef; --panel:#fff;
+    --bg:#f5f7fc; --accent:#1f6feb; --accent-dark:#1757b8; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--accent)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  header{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  header .wrap{display:flex;align-items:center;gap:14px;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;text-decoration:none;color:inherit}
+  .brand img{width:26px;height:26px;border-radius:7px}
+  nav{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:14px}
+  nav a{color:var(--muted);text-decoration:none}
+  nav a:hover{color:var(--ink)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .lang button{border:0;background:transparent;padding:4px 11px;font:inherit;font-size:13px;cursor:pointer;color:var(--muted)}
+  .lang button[aria-pressed=true]{background:var(--ink);color:#fff}
+
+  .hero{padding:64px 0 10px;text-align:center}
+  h1{font-size:clamp(32px,5vw,46px);line-height:1.15;letter-spacing:-.02em;margin:0 0 16px}
+  .lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:640px;margin:0 auto 28px}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+  .btn{display:inline-block;padding:11px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;
+    border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+  .btn:hover{border-color:#c6cdd8}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+  .note{font-size:13px;color:var(--muted)}
+
+  .shot{margin:40px auto 0;border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 18px 50px -18px rgba(20,33,66,.45);border:1px solid var(--line);background:#fff}
+
+  section{padding:64px 0}
+  h2{font-size:26px;letter-spacing:-.015em;margin:0 0 10px}
+  .sub{color:var(--muted);margin:0 0 32px;max-width:620px}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .step b{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;
+    background:var(--accent);color:#fff;font-size:14px;margin-bottom:10px}
+  .step p{margin:0;font-size:14.5px;color:var(--muted)}
+  .step h3{margin:0 0 6px;font-size:15.5px}
+
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feat div{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .feat h3{margin:0 0 5px;font-size:15.5px}
+  .feat p{margin:0;font-size:14.5px;color:var(--muted)}
+
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .gallery figure{margin:0}
+  .gallery img{border-radius:var(--radius);border:1px solid var(--line);box-shadow:0 10px 30px -14px rgba(20,33,66,.4)}
+  .gallery figcaption{font-size:13.5px;color:var(--muted);margin-top:8px}
+
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;font-size:14.5px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+  th{background:#f0f3f8;font-weight:600;font-size:13px;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  code{background:#eceff5;padding:1px 6px;border-radius:5px;font-size:13.5px}
+  .tablewrap{overflow-x:auto}
+
+  .privacy{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
+  .privacy ul{margin:0;padding-left:20px;color:var(--muted)}
+  .privacy li{margin:5px 0}
+
+  footer{border-top:1px solid var(--line);background:var(--panel);padding:30px 0;margin-top:20px}
+  footer .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
+  footer a{color:var(--muted)}
+  footer .sp{margin-left:auto}
+
+  @media (max-width:860px){
+    .steps{grid-template-columns:1fr 1fr}
+    .feat{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
+    nav a[data-hide]{display:none}
+  }
+  @media (max-width:520px){ .steps{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/icon.png" alt="">Microcopy Lab</a>
+    <nav>
+      <a href="#how" data-i18n="navHow" data-hide>How it works</a>
+      <a href="#table" data-i18n="navTable" data-hide>Table format</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+      <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+      <span class="lang">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero wrap">
+    <h1 data-i18n="heroTitle">Test wording variants on any website</h1>
+    <p class="lead" data-i18n="heroLead">Microcopy Lab replaces titles, labels, buttons, placeholders and tooltips according to a simple spreadsheet — so you can test how people read your product, without touching code.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/StephanSX/microcopy-lab#installation" data-i18n="ctaInstall">Install</a>
+      <a class="btn" href="https://github.com/StephanSX/microcopy-lab" data-i18n="ctaSource">View source</a>
+    </div>
+    <p class="note" data-i18n="ctaNote">Free and open source · Chrome &amp; Edge · English and German interface</p>
+    <img class="shot" src="assets/hero.png" alt="Microcopy Lab replacing texts on a web app, with its popup open" width="1280" height="471">
+  </div>
+
+  <section id="how" class="wrap">
+    <h2 data-i18n="howTitle">How it works</h2>
+    <p class="sub" data-i18n="howSub">Four steps, and from then on you only edit the spreadsheet.</p>
+    <div class="steps">
+      <div class="step"><b>1</b><h3 data-i18n="s1h">Enable a website</h3><p data-i18n="s1p">Open your site — web apps behind a login work too — and enable Microcopy Lab for it. It runs nowhere else.</p></div>
+      <div class="step"><b>2</b><h3 data-i18n="s2h">Collect the texts</h3><p data-i18n="s2p">Click through the pages. Every visible text, placeholder and tooltip is collected automatically.</p></div>
+      <div class="step"><b>3</b><h3 data-i18n="s3h">Write your variants</h3><p data-i18n="s3p">Export to Excel or CSV and add a column per variant. An empty cell keeps the original.</p></div>
+      <div class="step"><b>4</b><h3 data-i18n="s4h">Switch and test</h3><p data-i18n="s4p">Import the file or link a Google Sheet, then switch variants live — no reload, no deployment.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2 data-i18n="featTitle">What it can do</h2>
+    <p class="sub" data-i18n="featSub">Built for real products, not demo pages.</p>
+    <div class="feat">
+      <div><h3 data-i18n="f1h">Works in modern web apps</h3><p data-i18n="f1p">Texts that load later or change on the fly are replaced too — React, Angular, Vue and anything else.</p></div>
+      <div><h3 data-i18n="f2h">Unlimited variants</h3><p data-i18n="f2p">Add as many columns as you like and switch between them from the toolbar popup.</p></div>
+      <div><h3 data-i18n="f3h">Rules per page</h3><p data-i18n="f3p">The same word can read differently on two screens. IDs in addresses are matched automatically.</p></div>
+      <div><h3 data-i18n="f4h">Placeholders</h3><p data-i18n="f4p">“{n} items” becomes “{n} products” — the number stays whatever the page shows.</p></div>
+      <div><h3 data-i18n="f5h">Checked before it goes live</h3><p data-i18n="f5p">Every import reports duplicates, broken placeholders and entries never seen on any page.</p></div>
+      <div><h3 data-i18n="f6h">Test links</h3><p data-i18n="f6p">Add <code>?_variant=B</code> to a URL and the session opens in that variant straight away.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2 data-i18n="seeTitle">See it in action</h2>
+    <p class="sub" data-i18n="seeSub">The same screen, two wordings — and a highlight mode that shows what the table still misses.</p>
+    <div class="gallery">
+      <figure>
+        <img src="assets/original.png" alt="A dashboard in its original wording" loading="lazy">
+        <figcaption data-i18n="cap1">The original wording.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/friendly.png" alt="The same dashboard in a friendlier wording variant" loading="lazy">
+        <figcaption data-i18n="cap2">The same screen, variant “Friendly”.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/highlight.png" alt="Highlight mode marking replaced and unknown texts on a page" loading="lazy">
+        <figcaption data-i18n="cap4">Green is replaced, yellow is not in the table yet.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/report.png" alt="The validation report shown before a table is applied" loading="lazy">
+        <figcaption data-i18n="cap3">Every import is validated before it goes live.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="table" class="wrap">
+    <h2 data-i18n="tabTitle">The table</h2>
+    <p class="sub" data-i18n="tabSub">Any spreadsheet with these columns works. English and German headers are both understood.</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th>page</th><th>type</th><th>original</th><th>Friendly</th><th>Short</th></tr>
+        <tr><td>*</td><td>text</td><td>Tasks</td><td>To-dos</td><td>To-dos</td></tr>
+        <tr><td>/</td><td>text</td><td>Welcome back, Alex!</td><td>Hi Alex, good to see you!</td><td>Hi Alex</td></tr>
+        <tr><td>/settings/*</td><td>text</td><td>Advanced settings</td><td>Power settings</td><td></td></tr>
+        <tr><td>*</td><td>placeholder</td><td>Search projects</td><td>Find a project …</td><td>Search</td></tr>
+      </table>
+    </div>
+    <p class="note" style="margin-top:14px" data-i18n="tabNote"><code>page</code>: <code>*</code> everywhere, a path for one screen, <code>/settings/*</code> including sub-pages. <code>type</code>: <code>text</code>, <code>placeholder</code>, <code>tooltip</code> or <code>aria</code>. Every other column becomes a variant.</p>
+  </section>
+
+  <section class="wrap">
+    <h2 data-i18n="privTitle">Your data stays with you</h2>
+    <div class="privacy">
+      <ul>
+        <li data-i18n="p1">No account, no server, no analytics, no tracking.</li>
+        <li data-i18n="p2">Tables, settings and collected texts are stored only in your own browser.</li>
+        <li data-i18n="p3">The extension runs only on websites you enable yourself, one at a time.</li>
+        <li data-i18n="p4">The one network request it ever makes is downloading a table from an address you entered.</li>
+      </ul>
+      <p style="margin:18px 0 0"><a href="privacy.html" data-i18n="privLink">Read the full privacy policy →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Weibel Consulting, Muttenz</span>
+    <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+    <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+    <span class="sp"></span>
+    <span data-i18n="footLicense">MIT licensed</span>
+  </div>
+</footer>
+
+<script>
+const DE = {
+  navHow:'So funktioniert es', navTable:'Tabelle', navPrivacy:'Datenschutz',
+  heroTitle:'Textvarianten auf jeder Website testen',
+  heroLead:'Microcopy Lab ersetzt Titel, Beschriftungen, Buttons, Platzhalter und Tooltips nach einer einfachen Tabelle – damit du testen kannst, wie Menschen dein Produkt lesen, ohne Code anzufassen.',
+  ctaInstall:'Installieren', ctaSource:'Quellcode ansehen',
+  ctaNote:'Gratis und quelloffen · Chrome & Edge · Oberfläche auf Deutsch und Englisch',
+  howTitle:'So funktioniert es', howSub:'Vier Schritte, danach pflegst du nur noch die Tabelle.',
+  s1h:'Website aktivieren', s1p:'Öffne deine Website – auch Web-Apps mit Login – und aktiviere Microcopy Lab dafür. Sonst läuft es nirgends.',
+  s2h:'Texte sammeln', s2p:'Klick dich durch die Seiten. Jeder sichtbare Text, Platzhalter und Tooltip wird automatisch gesammelt.',
+  s3h:'Varianten schreiben', s3p:'Als Excel oder CSV exportieren und pro Variante eine Spalte ergänzen. Ein leeres Feld lässt das Original stehen.',
+  s4h:'Wechseln und testen', s4p:'Datei importieren oder ein Google Sheet verknüpfen, dann live zwischen Varianten wechseln – ohne Neuladen, ohne Deployment.',
+  featTitle:'Was es kann', featSub:'Gebaut für echte Produkte, nicht für Demo-Seiten.',
+  f1h:'Läuft in modernen Web-Apps', f1p:'Texte, die später nachgeladen werden oder sich laufend ändern, werden ebenfalls ersetzt – React, Angular, Vue und alles andere.',
+  f2h:'Beliebig viele Varianten', f2p:'Ergänze so viele Spalten, wie du willst, und wechsle im Menü der Symbolleiste zwischen ihnen.',
+  f3h:'Regeln pro Seite', f3p:'Dasselbe Wort kann auf zwei Screens anders heissen. IDs in Adressen werden automatisch erkannt.',
+  f4h:'Platzhalter', f4p:'«{n} Einträge» wird zu «{n} Produkte» – die Zahl bleibt, was die Seite anzeigt.',
+  f5h:'Geprüft vor dem Übernehmen', f5p:'Jeder Import meldet Doppelte, kaputte Platzhalter und Einträge, die auf keiner Seite vorkommen.',
+  f6h:'Test-Links', f6p:'Häng <code>?_variant=B</code> an eine Adresse, und die Sitzung startet direkt in dieser Variante.',
+  seeTitle:'So sieht es aus', seeSub:'Derselbe Screen in zwei Formulierungen – und ein Markier-Modus, der zeigt, was in der Tabelle noch fehlt.',
+  cap1:'Die ursprüngliche Formulierung.', cap2:'Derselbe Screen, Variante «Friendly».', cap4:'Grün ist ersetzt, Gelb fehlt noch in der Tabelle.', cap3:'Jeder Import wird vor dem Übernehmen geprüft.',
+  tabTitle:'Die Tabelle', tabSub:'Jede Tabelle mit diesen Spalten funktioniert. Deutsche und englische Spaltennamen werden beide verstanden.',
+  tabNote:'<code>page</code>: <code>*</code> überall, ein Pfad für einen Screen, <code>/settings/*</code> inklusive Unterseiten. <code>type</code>: <code>text</code>, <code>placeholder</code>, <code>tooltip</code> oder <code>aria</code>. Jede weitere Spalte wird zu einer Variante.',
+  privTitle:'Deine Daten bleiben bei dir',
+  p1:'Kein Konto, kein Server, keine Analyse, kein Tracking.',
+  p2:'Tabellen, Einstellungen und gesammelte Texte liegen ausschliesslich in deinem eigenen Browser.',
+  p3:'Die Erweiterung läuft nur auf Websites, die du selbst aktivierst, einzeln freigegeben.',
+  p4:'Die einzige Netzwerkanfrage ist das Herunterladen einer Tabelle von einer Adresse, die du eingegeben hast.',
+  privLink:'Vollständige Datenschutzerklärung lesen →',
+  footLicense:'MIT-Lizenz'
+};
+const EN = {};
+document.querySelectorAll('[data-i18n]').forEach(el => { EN[el.dataset.i18n] = el.innerHTML; });
+
+function setLang(l) {
+  const dict = l === 'de' ? DE : EN;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = dict[el.dataset.i18n];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
+  try { localStorage.setItem('mcl-lang', l); } catch (e) {}
+}
+document.querySelectorAll('.lang button').forEach(b => { b.onclick = () => setLang(b.dataset.lang); });
+let start = null;
+try { start = localStorage.getItem('mcl-lang'); } catch (e) {}
+if (!start) start = (navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'en';
+if (start === 'de') setLang('de');
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

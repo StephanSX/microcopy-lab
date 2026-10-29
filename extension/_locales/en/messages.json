@@ -1,0 +1,341 @@
+{
+ "extName": {
+  "message": "Microcopy Lab – Text variants for UX tests"
+ },
+ "extDescription": {
+  "message": "Swap labels, titles and button texts on any website from a spreadsheet to test wording variants in usability tests."
+ },
+ "popupToggleTitle": {
+  "message": "Turn replacements on/off"
+ },
+ "popupUnsupported": {
+  "message": "Microcopy Lab cannot run on this page (e.g. browser pages or the Web Store)."
+ },
+ "popupInactive": {
+  "message": "Microcopy Lab is not active on this website yet."
+ },
+ "popupEnableOn": {
+  "message": "Enable on {0}"
+ },
+ "popupPermissionHint": {
+  "message": "Chrome will ask for permission to read and change pages on this website. Nothing is sent anywhere – everything stays in your browser."
+ },
+ "popupVariant": {
+  "message": "Variant"
+ },
+ "popupNoTable": {
+  "message": "No table imported yet – open the manager to import one."
+ },
+ "popupThisPage": {
+  "message": "This page"
+ },
+ "statReplaced": {
+  "message": "replaced"
+ },
+ "statEmpty": {
+  "message": "no text in variant"
+ },
+ "statUnknown": {
+  "message": "not in table"
+ },
+ "popupHighlight": {
+  "message": "Highlight texts"
+ },
+ "legendOk": {
+  "message": "replaced"
+ },
+ "legendEmpty": {
+  "message": "no variant"
+ },
+ "legendUnknown": {
+  "message": "unknown"
+ },
+ "popupCollect": {
+  "message": "Collect texts on this page"
+ },
+ "popupCollected": {
+  "message": "Collected {0} texts on {1}, {2} new."
+ },
+ "popupRefreshSheet": {
+  "message": "Reload table from Google Sheet"
+ },
+ "popupManage": {
+  "message": "Import, export & settings"
+ },
+ "popupReloadPage": {
+  "message": "Please reload the page once and try again."
+ },
+ "popupTableInfo": {
+  "message": "{0} entries · {1} variants · {2}"
+ },
+ "variantOriginal": {
+  "message": "Original"
+ },
+ "permDenied": {
+  "message": "Permission was not granted."
+ },
+ "sheetLoading": {
+  "message": "Loading …"
+ },
+ "sheetUpdated": {
+  "message": "Table updated: {0} entries."
+ },
+ "sheetUpdatedWarn": {
+  "message": "Table updated: {0} entries, {1} warnings (details in the manager)."
+ },
+ "sheetErrorPrefix": {
+  "message": "Google Sheet: {0}"
+ },
+ "errNoSheetUrl": {
+  "message": "No sheet address saved."
+ },
+ "errSheetPermission": {
+  "message": "Permission to download the table is missing. Please click “Load” in the manager again."
+ },
+ "errSheetStatus": {
+  "message": "Server responded with status {0}. Is the sheet shared with “Anyone with the link”?"
+ },
+ "errSheetHtml": {
+  "message": "A web page came back instead of a table (usually a sign-in page). Share the sheet with “Anyone with the link” or publish it to the web as CSV."
+ },
+ "errXls": {
+  "message": "The old .xls format is not supported – please save as .xlsx or CSV."
+ },
+ "errXlsxInvalid": {
+  "message": "Not a valid XLSX file."
+ },
+ "errXlsxCorrupt": {
+  "message": "The XLSX file is damaged."
+ },
+ "errXlsxCompression": {
+  "message": "Unsupported compression in XLSX file."
+ },
+ "errXlsxXml": {
+  "message": "The XLSX file could not be read."
+ },
+ "errXlsxSheet": {
+  "message": "No worksheet found in XLSX file."
+ },
+ "repNoOriginal": {
+  "message": "No “original” column found. The header row needs at least “original” and one variant column."
+ },
+ "repDupColumn": {
+  "message": "Column “{0}” appears twice – only the first one is used."
+ },
+ "repNoVariants": {
+  "message": "No variant column found (e.g. “A”, “B”). The table will be imported but won’t replace anything."
+ },
+ "repUnknownType": {
+  "message": "Row {0}: unknown type “{1}” – treated as “text”."
+ },
+ "repDuplicate": {
+  "message": "Row {0}: “{1}” ({2}, {3}) is a duplicate – row {4} applies."
+ },
+ "repPlaceholder": {
+  "message": "Row {0}: placeholders in variant {1} don’t match the original (“{2}” → “{3}”)."
+ },
+ "repSkipped": {
+  "message": "{0} rows without original text skipped."
+ },
+ "repUnseen": {
+  "message": "{0} entries have not been seen on any page yet (page not visited yet, or a typo?)."
+ },
+ "repUnseenExamples": {
+  "message": "Examples not seen: {0}"
+ },
+ "repErrorsTitle": {
+  "message": "Errors – the table cannot be applied"
+ },
+ "repWarningsTitle": {
+  "message": "Warnings"
+ },
+ "repInfosTitle": {
+  "message": "Notes"
+ },
+ "repAllGood": {
+  "message": "No problems found."
+ },
+ "repMore": {
+  "message": "… and {0} more"
+ },
+ "repMoreRows": {
+  "message": "… {0} more rows"
+ },
+ "kpiRows": {
+  "message": "entries"
+ },
+ "kpiVariants": {
+  "message": "variants"
+ },
+ "kpiWarnings": {
+  "message": "warnings"
+ },
+ "kpiUnseen": {
+  "message": "not seen"
+ },
+ "eqOriginal": {
+  "message": "= original"
+ },
+ "foundYes": {
+  "message": "yes"
+ },
+ "foundNo": {
+  "message": "no"
+ },
+ "foundNew": {
+  "message": "new"
+ },
+ "optTagline": {
+  "message": "Test wording variants on any website – driven by a simple table."
+ },
+ "optWelcome": {
+  "message": "<b>Installed.</b> Open the website you want to test, click the Microcopy Lab icon and choose <i>Enable</i>. Browse through the pages – texts are collected automatically. Then export them here, add your variants and import the file again."
+ },
+ "optWebsite": {
+  "message": "Website"
+ },
+ "optAddSitePlaceholder": {
+  "message": "https://app.example.com"
+ },
+ "optAddSite": {
+  "message": "Add website"
+ },
+ "optInvalidUrl": {
+  "message": "Please enter a valid web address (https://…)."
+ },
+ "optEmptyTitle": {
+  "message": "No website enabled yet"
+ },
+ "optEmptyText": {
+  "message": "Open the website you want to test and click the Microcopy Lab icon in the toolbar, or add the address above. Microcopy Lab only runs on websites you enable."
+ },
+ "optPermMissing": {
+  "message": "Chrome no longer has permission for this website, so nothing is replaced."
+ },
+ "optRegrant": {
+  "message": "Grant again"
+ },
+ "optImportTitle": {
+  "message": "1 · Import table"
+ },
+ "optDrop": {
+  "message": "Drop an Excel or CSV file here"
+ },
+ "optDropFormats": {
+  "message": ".xlsx · .csv (semicolon, comma or tab)"
+ },
+ "optPickFile": {
+  "message": "Choose file …"
+ },
+ "optSheetLabel": {
+  "message": "or a Google Sheet (shared with “Anyone with the link”) or CSV address"
+ },
+ "optLoad": {
+  "message": "Load"
+ },
+ "optAutoRefresh": {
+  "message": "reload automatically when the website is opened"
+ },
+ "optCurrentTable": {
+  "message": "Current table"
+ },
+ "optCurrentSummary": {
+  "message": "{0} entries · {1} · imported {2}"
+ },
+ "optFromFile": {
+  "message": "file “{0}”"
+ },
+ "optVariantsCount": {
+  "message": "Filled per variant –"
+ },
+ "optNoTable": {
+  "message": "No table imported yet."
+ },
+ "optClearTable": {
+  "message": "Remove table"
+ },
+ "optClearTableConfirm": {
+  "message": "Remove the current table? The website will show its original texts again."
+ },
+ "optSettings": {
+  "message": "Settings"
+ },
+ "optAutoCollect": {
+  "message": "Collect texts automatically while browsing"
+ },
+ "optTestLinks": {
+  "message": "Test links: add <code>?_variant=B</code> to an address to switch to variant B, <code>?_variant=original</code> for the original, <code>?_variant=off</code> to turn replacements off."
+ },
+ "optRemoveSite": {
+  "message": "Remove website"
+ },
+ "optRemoveSiteConfirm": {
+  "message": "Remove {0} including table and collected texts? The permission for this website is revoked as well."
+ },
+ "optReport": {
+  "message": "Validation report"
+ },
+ "optApply": {
+  "message": "Apply"
+ },
+ "optDiscard": {
+  "message": "Discard"
+ },
+ "optApplyNote": {
+  "message": "Open tabs of this website update immediately."
+ },
+ "optExportTitle": {
+  "message": "2 · Export"
+ },
+ "optExportText": {
+  "message": "Contains the current table plus all collected texts that are still missing (column <code>found</code> = “new”)."
+ },
+ "optExportXlsx": {
+  "message": "Export Excel"
+ },
+ "optExportCsv": {
+  "message": "Export CSV"
+ },
+ "optCollected": {
+  "message": "Collected texts"
+ },
+ "optSearch": {
+  "message": "Search …"
+ },
+ "optClearSeen": {
+  "message": "Clear list"
+ },
+ "optClearSeenConfirm": {
+  "message": "Clear the list of collected texts for this website?"
+ },
+ "optCollectedHint": {
+  "message": "May contain personal data shown on the page (e.g. names) – review before sharing."
+ },
+ "optNPages": {
+  "message": "{0} pages"
+ },
+ "colText": {
+  "message": "Text"
+ },
+ "colType": {
+  "message": "Type"
+ },
+ "colPages": {
+  "message": "Pages"
+ },
+ "colTable": {
+  "message": "Table"
+ },
+ "optHelpTitle": {
+  "message": "Table format & tips"
+ },
+ "optHelpBody": {
+  "message": "<p>Header row: <code>page</code> · <code>type</code> · <code>original</code> · any number of variant columns (<code>A</code>, <code>B</code>, <code>Short</code> …) · <code>note</code>. Columns <code>found</code>, <code>id</code> and <code>key</code> are ignored. German headers (<code>seite</code>, <code>typ</code>, <code>notiz</code>) work too.</p><p><b>page</b>: <code>*</code> = everywhere, <code>/app</code> = exactly this page, <code>/app/groups/*</code> = including sub-pages. IDs in addresses become <code>:id</code> automatically (e.g. <code>/app/groups/:id/settings</code>). More specific entries win.</p><p><b>type</b>: <code>text</code> (visible), <code>placeholder</code> (input fields), <code>tooltip</code>, <code>aria</code> (screen readers). Empty = text.</p><p><b>Placeholders</b>: <code>{n} devices</code> → <code>{n} sensors</code>. Works for texts that appear as one piece on the page.</p><p><b>Empty cell</b> in a variant = the original text stays.</p>"
+ },
+ "optPrivacyTitle": {
+  "message": "Privacy"
+ },
+ "optPrivacyBody": {
+  "message": "<p>Microcopy Lab has no server and no analytics. Tables, settings and collected texts are stored only in this browser (chrome.storage.local) and never leave your device.</p><p>The extension only runs on websites you enable yourself. The only network request it makes is downloading a table from an address you enter (e.g. a Google Sheet) – no data is sent along.</p><p>Removing a website or uninstalling the extension deletes its data.</p>"
+ }
+}

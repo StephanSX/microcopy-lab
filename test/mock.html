@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Guardian Aid Care</title></head>
+<body><div id="root"></div>
+<script>
+let n=2;
+function render(){
+  const p=location.pathname; const r=document.getElementById('root');
+  if(p.startsWith('/app/groups')){
+    r.innerHTML='<h1>Gruppe OBA</h1><div class="tab">Meldungen</div><div>Geräte</div><button id="home">Zurück</button>';
+    document.getElementById('home').onclick=()=>{history.pushState({},'','/app');render();};
+  } else {
+    r.innerHTML='<main><h2>Willkommen zurück, <b>Stephan Weibel</b>!</h2><h3>Übersicht meiner Gruppen</h3>'+
+      '<div class="card"><span>Meldungen</span> <span id="cnt">'+n+' Geräte online</span></div>'+
+      '<div>Geräte</div><input placeholder="Suchen…"><button title="Einstellungen öffnen">⚙</button>'+
+      '<p>Zimmer 122</p><button id="go">Gruppe öffnen</button></main>';
+    document.getElementById('go').onclick=()=>{history.pushState({},'','/app/groups/11/management');render();};
+  }
+}
+setTimeout(render,50);
+window.bump=()=>{n++;const c=document.getElementById('cnt'); if(c) c.textContent=n+' Geräte online';};
+</script></body></html>

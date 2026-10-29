@@ -1,0 +1,15 @@
+page;type;original;Friendly;Short;note
+*;text;Dashboard;Home;Start;
+*;text;Tasks;To-dos;To-dos;
+*;text;Roles & permissions;Who can do what;Access;
+*;text;Advanced settings;Power settings;More;
+/;text;Welcome back, Alex!;Hi Alex, good to see you!;Hi Alex;
+/;text;Open tasks;Still to do;Open;
+/;text;Overdue;Needs attention;Late;
+/;text;Assigned to me;On your plate;Mine;
+/;text;Unread notifications;New for you;Unread;
+/;text;Waiting for review;Ready for feedback;;
+/;text;Favorite projects will appear here.;Star a project to pin it here.;;
+*;placeholder;Search projects;Find a project …;Search;
+*;tooltip;Create a new project;Start something new;;
+*;text;New project;Start a project;New;

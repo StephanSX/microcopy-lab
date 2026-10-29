@@ -1,0 +1,20 @@
+{
+  "name": "microcopy-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension that swaps interface texts on any website from a spreadsheet, for wording tests.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node test/core.test.cjs && node test/e2e.mjs",
+    "test:unit": "node test/core.test.cjs",
+    "test:e2e": "node test/e2e.mjs",
+    "smoke": "node test/prod.mjs",
+    "shots": "node test/shots.mjs en && node test/shots.mjs de",
+    "messages": "python3 tools/messages.py",
+    "build": "cd extension && zip -rqX ../microcopy-lab.zip . -x '.*' && echo wrote microcopy-lab.zip"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}
