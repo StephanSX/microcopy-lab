@@ -8,7 +8,8 @@ variants as you like and switch between them live — for usability tests, UX wr
 reviews, stakeholder demos and localisation checks.
 
 [Website](https://stephansx.github.io/microcopy-lab/) ·
-[Privacy policy](https://stephansx.github.io/microcopy-lab/privacy.html)
+[Privacy policy](https://stephansx.github.io/microcopy-lab/privacy.html) ·
+[Buy me a coffee](https://buymeacoffee.com/stephanweibel)
 
 ![Microcopy Lab replacing texts on a web app](docs/assets/hero.png)
 

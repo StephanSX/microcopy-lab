@@ -88,6 +88,10 @@
   footer .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
   footer a{color:var(--muted)}
   footer .sp{margin-left:auto}
+  .coffee{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border:1px solid var(--line);
+    border-radius:999px;text-decoration:none;color:var(--muted);background:var(--bg)}
+  .coffee:hover{border-color:#c6cdd8;color:var(--ink)}
+  .coffee::before{content:"";width:13px;height:13px;border-radius:3px;background:#ffdd00;flex:none}
 
   @media (max-width:860px){
     .steps{grid-template-columns:1fr 1fr}
@@ -209,6 +213,7 @@
     <span>© <span id="year">2026</span> Weibel Consulting, Muttenz</span>
     <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
     <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+    <a class="coffee" href="https://buymeacoffee.com/stephanweibel" data-i18n="footCoffee">Buy me a coffee</a>
     <span class="sp"></span>
     <span data-i18n="footLicense">MIT licensed</span>
   </div>
@@ -243,7 +248,7 @@ const DE = {
   p3:'Die Erweiterung läuft nur auf Websites, die du selbst aktivierst, einzeln freigegeben.',
   p4:'Die einzige Netzwerkanfrage ist das Herunterladen einer Tabelle von einer Adresse, die du eingegeben hast.',
   privLink:'Vollständige Datenschutzerklärung lesen →',
-  footLicense:'MIT-Lizenz'
+  footCoffee:'Spendier mir einen Kaffee', footLicense:'MIT-Lizenz'
 };
 const EN = {};
 document.querySelectorAll('[data-i18n]').forEach(el => { EN[el.dataset.i18n] = el.innerHTML; });

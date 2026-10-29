@@ -39,6 +39,10 @@
   footer{border-top:1px solid var(--line);background:var(--panel);padding:26px 0;font-size:14px;color:var(--muted)}
   footer .wrap{display:flex;gap:16px;flex-wrap:wrap}
   footer a{color:var(--muted)}
+  .coffee{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border:1px solid var(--line);
+    border-radius:999px;text-decoration:none;color:var(--muted);background:var(--bg)}
+  .coffee:hover{border-color:#c6cdd8;color:var(--ink)}
+  .coffee::before{content:"";width:13px;height:13px;border-radius:3px;background:#ffdd00;flex:none}
   .hide{display:none}
 </style>
 </head>
@@ -113,12 +117,13 @@
     <span>© <span id="year">2026</span> Weibel Consulting, Muttenz</span>
     <a href="index.html" data-t="navHome">Home</a>
     <a href="https://github.com/StephanSX/microcopy-lab">GitHub</a>
+    <a class="coffee" href="https://buymeacoffee.com/stephanweibel" data-t="footCoffee">Buy me a coffee</a>
   </div>
 </footer>
 
 <script>
 const DE = {
-  navHome:'Startseite',
+  navHome:'Startseite', footCoffee:'Spendier mir einen Kaffee',
   title:'Datenschutzerklärung',
   forExt:'Für die Browser-Erweiterung «Microcopy Lab»',
   updated:'Stand: 29. Oktober 2026',
