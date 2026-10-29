@@ -9,9 +9,9 @@ sell or share any personal data. Everything stays in your browser.
 ## Who is responsible
 
 Weibel Consulting, Stephan Weibel
-[Street and number]
-[Postcode] Muttenz, Switzerland
-Email: [contact email]
+Bruehlweg 38
+4132 Muttenz, Switzerland
+Email: weibel.consulting.llc@gmail.com
 
 ## What the extension processes
 
@@ -82,9 +82,9 @@ verkauft oder teilt keine personenbezogenen Daten. Alles bleibt in deinem Browse
 ## Verantwortlich
 
 Weibel Consulting, Stephan Weibel
-[Strasse und Nummer]
-[PLZ] Muttenz, Schweiz
-E-Mail: [Kontakt-E-Mail]
+Bruehlweg 38
+4132 Muttenz, Schweiz
+E-Mail: weibel.consulting.llc@gmail.com
 
 ## Was die Erweiterung verarbeitet
 
